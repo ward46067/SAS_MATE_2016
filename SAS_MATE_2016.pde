@@ -12,9 +12,15 @@ ControllIO controll;
 ControllDevice device;
 Serial port;
 
+<<<<<<< HEAD
+
+ControllSlider sliderY;
+ControllSlider sliderX;
+
+
 ControllSlider sliderSens;
 ControllSlider sliderRot;
-//hi
+
 
 PFont bigfont;
 
