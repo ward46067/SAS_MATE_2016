@@ -12,7 +12,6 @@ ControllIO controll;
 ControllDevice device;
 Serial port;
 
-<<<<<<< HEAD
 
 ControllSlider sliderY;
 ControllSlider sliderX;
@@ -21,6 +20,17 @@ ControllSlider sliderX;
 ControllSlider sliderSens;
 ControllSlider sliderRot;
 
+int motor1 = 0;
+int motor2 = 0;
+int motor3 = 0;
+int motor4 = 0;
+
+int servo1 = 0;
+int servo2 = 0;
+int servo3 = 0;
+int servo4 = 0;
+
+float x, y, rot, sens, elv;
 
 PFont bigfont;
 
@@ -93,7 +103,7 @@ void draw(){
   //send motor output
   if ( millis() - lastSend > 100) { //minimum time between msg = 100ms
     lastSend = millis();
-    printToArduino(); //negatives for correct polarity
+    printToArduino(motor1, motor2, motor3, motor4, servo1, servo2, servo3, servo4); 
     
     if (commsError) { //if not connected, attempt reconnect
        if (Serial.list().length == 1) {
@@ -106,8 +116,10 @@ void draw(){
 }
 
 //send to arduino
-void printToArduino() {
+void printToArduino(int m1, int m2, int m3, int m4, int s1, int s2, int s3, int s4) {
   if (!commsError) {
     
+    println('T' + hex(m1,2) + hex(m2,2) + hex(m3,2) + hex(m4,2) + hex(s1,2) + hex(s3,2) + hex(s3,2) + hex(s4,2)); //debug
+    port.write('T' + hex(m1,2) + hex(m2,2) + hex(m3,2) + hex(m4,2) + hex(s1,2) + hex(s3,2) + hex(s3,2) + hex(s4,2));
   }
 }
