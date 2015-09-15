@@ -12,6 +12,8 @@ ControllIO controll;
 ControllDevice device;
 Serial port;
 
+ControllSlider sliderSens;
+ControllSlider sliderRot;
 
 PFont bigfont;
 
