@@ -34,7 +34,7 @@ int srv = 0;
 float x, y, r, s, e, b, ec, srvo, srvc; //controller values //all doubles
 long lastSend; //last millisecond to send message to Arduino
 PFont bigfont;
-PImage ping;
+//PImage ping;
 
 boolean jsError = true;
 boolean commsError = true;
