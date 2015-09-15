@@ -20,32 +20,27 @@ ControllSlider sliderX;
 ControllSlider sliderSens;
 ControllSlider sliderRot;
 
-int motor1 = 0;
-int motor2 = 0;
-int motor3 = 0;
-int motor4 = 0;
+double motor1 = 0;
+double motor2 = 0;
+double motor3 = 0;
+double motor4 = 0;
 
-int motor1x;
-int motor2x;
-int motor3x;
-int motor4x;
+double motor1x = 0;
+double motor2x = 0;
+double motor3x = 0;
+double motor4x = 0;
 
-int motor1y;
-int motor2y;
-int motor3y;
-int motor4y;
+double motor1z = 0;
+double motor2z = 0;
+double motor3z = 0;
+double motor4z = 0;
 
-int motor1z;
-int motor2z;
-int motor3z;
-int motor4z;
+double servo1 = 0;
+double servo2 = 0;
+double servo3 = 0;
+double servo4 = 0;
 
-int servo1 = 0;
-int servo2 = 0;
-int servo3 = 0;
-int servo4 = 0;
-
-float x, y, rot, sens, elv;
+double x, y, z, rot, sens, elv;
 
 PFont bigfont;
 
@@ -103,67 +98,83 @@ void draw(){
   
   try { //math for motor and servo values //surrouned in a try/catch statement incase of errors
     
-    if(y = 0) {
+    if(y == 0) {
       servo1 = 90;
       servo2 = 90;
-      servo2 = 90;
+      servo3 = 90;
       servo4 = 90;
     }
-    
-    if(x = 0) {
-      motor1y = 0;
-      motor2y = 0;
-      motor3y = 0;
-      motor4y = 0;
+
+    if(x == 0) {
+      motor1x = 0;
+      motor2x = 0;
+      motor3x = 0;
+      motor4x = 0;
     }
-    
-    if(z = 0) {
+
+    if(z == 0) {
       motor1z = 0;
       motor2z = 0;
       motor3z = 0;
       motor4z = 0;
     }
-    
-    if(x > 0) {
-      motor1x = -1 * x;
-      motor2x = -1 + (2 * x);
-      motor3x = x;
-      motor4x = 1 - (2 * x);
-    }
-    
+
     if(x < 0) {
-      x = x-1 + (2 * x);
-      motor1x = -1 + (2 * x);
+      motor1x = x;
       motor2x = -1 * x;
-      motor3x = 1 - (2 * x);
+      motor3x = -1 * x;
+      motor4x = x;
+      
+    }
+
+    if(x > 0) {
+      motor1x = x;
+      motor2x = -1 * x;
+      motor3x = -1 * x;
       motor4x = x;
     }
-    
+
     if(z > 0) {
       motor1z = -1 * z;
       motor2z = -1 * z;
       motor3z = z;
       motor4z = z;
     }
-    
+
     if(z < 0) {
       motor1z = -1 * z;
       motor2z = -1 * z;
       motor3z = z;
       motor4z = z;
     }
-    
+
     motor1 = motor1x + motor1z;
     motor2 = motor2x + motor2z;
     motor3 = motor3x + motor3z;
     motor4 = motor4x + motor4z;
-    
-    if(y != 0) {
-      servo1 = ((-1 * motor1) + 1) * 90;
-      servo2 = ((-1 * motor1) + 1) * 90;
-      servo3 = ((-1 * motor1) + 1) * 90;
-      servo4 = ((-1 * motor1) + 1) * 90;
+
+    if(y > 1) {
+      servo1 = ((motor1 + y )) * 90;
+      servo2 = ((-1 * motor2) - 1) * 90;
+      servo3 = ((-1 * motor3) - 1) * 90;
+      servo4 = ((-1 * motor4) - 1) * 90;
     }
+    
+    if(y < 1) {
+      servo1 = ((-1 * motor1) + 1) * 90;
+      servo2 = ((-1 * motor2) + 1) * 90;
+      servo3 = ((-1 * motor3) + 1) * 90;
+      servo4 = ((-1 * motor4) + 1) * 90;
+    }
+    
+    if(motor1 == 0)
+        motor1 = -1 * y;
+    if(motor2 == 0)
+        motor2 = -1 * y;
+    if(motor3 == 0)
+        motor3 = -1 * y;
+    if(motor4 == 0)
+        motor4 = -1 * y;
     
   }
   catch (Exception e) {
