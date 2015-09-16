@@ -132,14 +132,7 @@ public class main {
             
           }
           
-          if(motor1 == 0)
-              motor1 = -1 * y;
-          if(motor2 == 0)
-              motor2 = -1 * y;
-          if(motor3 == 0)
-              motor3 = -1 * y;
-          if(motor4 == 0)
-              motor4 = -1 * y;
+          
           
           System.out.println("1, " + servo1 + ", " + motor1 + ".");
           System.out.println("2, " + servo2 + ", " + motor2 + ".");
