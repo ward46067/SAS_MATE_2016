@@ -153,28 +153,82 @@ void draw(){
     motor3 = motor3x + motor3z;
     motor4 = motor4x + motor4z;
 
-    if(y > 1) {
-      servo1 = ((motor1 + y )) * 90;
-      servo2 = ((-1 * motor2) - 1) * 90;
-      servo3 = ((-1 * motor3) - 1) * 90;
-      servo4 = ((-1 * motor4) - 1) * 90;
+    if(y > 0) {
+        
+        if(motor1 > 0)
+            servo1 = ((motor1 + y)/2) * 90;
+        if(motor2 > 0)
+            servo2 = ((motor2 + y)/2) * 90;
+        if(motor3 > 0)
+            servo3 = ((motor3 + y)/2) * 90;
+        if(motor4 > 0)
+            servo4 = ((motor4 + y)/2) * 90;
+        
+        if(motor1 < 0)
+            servo1 = (((-motor1 + y)/2) * 90) + 90;
+        if(motor2 < 0)
+            servo2 = (((-motor2 + y)/2) * 90) + 90;
+        if(motor3 < 0)
+            servo3 = (((-motor3 + y)/2) * 90) + 90;
+        if(motor4 < 0)
+            servo4 = (((-motor4 + y)/2) * 90) + 90;
+        
+        if(motor1 == 0){
+            servo1 = 90 - (y *90);
+            motor1 = y;
+        }
+        if(motor2 == 0){
+            servo2 = 90 - (y *90);
+            motor2 = y;
+        }
+        if(motor3 == 0){
+            servo3 = 90 - (y *90);
+            motor3 = y;
+        }
+        if(motor4 == 0){
+            servo4 = 90 - (y *90);
+            motor4 = y;
+        }
     }
     
-    if(y < 1) {
-      servo1 = ((-1 * motor1) + 1) * 90;
-      servo2 = ((-1 * motor2) + 1) * 90;
-      servo3 = ((-1 * motor3) + 1) * 90;
-      servo4 = ((-1 * motor4) + 1) * 90;
+    if(y < 0) {
+        
+        if(motor1 > 0)
+            servo1 = (((motor1 + y)/2) * 90) + 90;
+        if(motor2 > 0)
+            servo2 = (((motor2 + y)/2) * 90) + 90;
+        if(motor3 > 0)
+            servo3 = (((motor3 + y)/2) * 90) + 90;
+        if(motor4 > 0)
+            servo4 = (((motor4 + y)/2) * 90) + 90;
+        
+        if(motor1 < 0)
+            servo1 = ((-motor1 + y)/2) * 90;
+        if(motor2 < 0)
+            servo2 = ((-motor2 + y)/2) * 90;
+        if(motor3 < 0)
+            servo3 = ((-motor3 + y)/2) * 90;
+        if(motor4 < 0)
+            servo4 = ((-motor4 + y)/2) * 90;
+        
+        if(motor1 == 0){
+            servo1 = (y * 90) + 90;
+            motor1 = -y;
+        }
+        if(motor2 == 0){
+            servo2 = (y * 90) + 90;
+            motor2 = -y;
+        }
+        if(motor3 == 0){
+            servo3 = (y * 90) + 90;
+            motor3 = -y;
+        }
+        if(motor4 == 0){
+            servo4 = (y * 90) + 90;
+            motor4 = -y;
+        }
+      
     }
-    
-    if(motor1 == 0)
-        motor1 = -1 * y;
-    if(motor2 == 0)
-        motor2 = -1 * y;
-    if(motor3 == 0)
-        motor3 = -1 * y;
-    if(motor4 == 0)
-        motor4 = -1 * y;
     
   }
   catch (Exception e) {

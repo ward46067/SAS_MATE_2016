@@ -117,19 +117,19 @@ public class main {
                   servo4 = (((-motor4 + y)/2) * 90) + 90;
               
               if(motor1 == 0){
-                  servo1 = y *90;
+                  servo1 = 90 - (y *90);
                   motor1 = y;
               }
               if(motor2 == 0){
-                  servo2 = y *90;
+                  servo2 = 90 - (y *90);
                   motor2 = y;
               }
               if(motor3 == 0){
-                  servo3 = y *90;
+                  servo3 = 90 - (y *90);
                   motor3 = y;
               }
               if(motor4 == 0){
-                  servo4 = y *90;
+                  servo4 = 90 - (y *90);
                   motor4 = y;
               }
           }
