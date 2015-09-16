@@ -96,7 +96,7 @@ public class main {
           motor3 = motor3x + motor3z;
           motor4 = motor4x + motor4z;
 
-          if(y > 1) {
+          if(y > 0) {
               
               if(motor1 > 0)
                   servo1 = ((motor1 + y)/2) * 90;
@@ -134,7 +134,7 @@ public class main {
               }
           }
           
-          if(y < 1) {
+          if(y < 0) {
               
               if(motor1 > 0)
                   servo1 = (((motor1 + y)/2) * 90) + 90;
