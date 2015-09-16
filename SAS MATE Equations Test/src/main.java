@@ -1,6 +1,4 @@
 
-package SASMateEquationsTest;
-
 import com.javaconsole.jconsole.console;
 
 
@@ -8,7 +6,7 @@ public class main {
 
     
     public static void main(String[] args) throws InterruptedException {
-        
+       
         double motor1 = 0;
         double motor2 = 0;
         double motor3 = 0;
