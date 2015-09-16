@@ -129,6 +129,33 @@ public class main {
           }
           
           if(y < 1) {
+              
+              if(motor1 > 0)
+                  servo1 = (((motor1 + y)/2) * 90) + 90;
+              if(motor2 > 0)
+                  servo2 = (((motor2 + y)/2) * 90) + 90;
+              if(motor3 > 0)
+                  servo3 = (((motor3 + y)/2) * 90) + 90;
+              if(motor4 > 0)
+                  servo4 = (((motor4 + y)/2) * 90) + 90;
+              
+              if(motor1 < 0)
+                  servo1 = ((-motor1 + y)/2) * 90;
+              if(motor2 < 0)
+                  servo2 = ((-motor2 + y)/2) * 90;
+              if(motor3 < 0)
+                  servo3 = ((-motor3 + y)/2) * 90;
+              if(motor4 < 0)
+                  servo4 = ((-motor4 + y)/2) * 90;
+              
+              if(motor1 == 0)
+                  servo1 = (y * 90) + 90;
+              if(motor2 == 0)
+                  servo2 = (y * 90) + 90;
+              if(motor3 == 0)
+                  servo3 = (y * 90) + 90;
+              if(motor4 == 0)
+                  servo4 = (y * 90) + 90;
             
           }
           
