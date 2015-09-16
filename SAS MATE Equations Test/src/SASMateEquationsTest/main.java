@@ -1,23 +1,13 @@
 
-import java.util.Scanner;
+package SASMateEquationsTest;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import com.javaconsole.jconsole.console;
 
-/**
- *
- * @author dalen
- */
+
 public class main {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    
+    public static void main(String[] args) throws InterruptedException {
         
         double motor1 = 0;
         double motor2 = 0;
@@ -41,14 +31,17 @@ public class main {
 
         double x, y, z, rot, sens, elv;
         
-        Scanner scan = new Scanner(System.in);
+        console.gui(500, 500);
         
         System.out.println("Enter an X value.");
-        x = scan.nextDouble();
+        console.scan();
+        x = Double.parseDouble(console.usrAnswer);
         System.out.println("Enter a Z value.");
-        z = scan.nextDouble();
+        console.scan();
+        z = Double.parseDouble(console.usrAnswer);
         System.out.println("Enter a Y value.");
-        y = scan.nextDouble();
+        console.scan();
+        y = Double.parseDouble(console.usrAnswer);
         
         if(y == 0) {
             servo1 = 90;
