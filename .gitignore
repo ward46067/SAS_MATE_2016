@@ -52,3 +52,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/SASMATETest/nbproject/private/
+/SAS MATE Equations Test/nbproject/private/
