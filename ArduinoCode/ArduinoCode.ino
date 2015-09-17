@@ -36,37 +36,39 @@ void setup() {
 }
 
 void loop() {
-  while(Serial.available() > 10) { //gather 11 bits in hardware buffer
+  while(Serial.available() > 16) { //gather 11 bits in hardware buffer
      
         byte message = Serial.read();
 
         if (message == 'T' || message == 't') { //Throttle message starts with T followed by 8 Hexadecimal inputs
                 
-                for(int i=0; i < 10; i++) {
+                for(int i=0; i < 16; i++) {
                         buffer[i] = Serial.read();
                 }       
                 Serial.write(buffer);
                 //Convert two hexes to a decimal 0~255, rescale to 905 ~ 2100
                 //center value is 127
-                mc1.writeMicroseconds( 75 * (hex2dec(buffer[0]) * 16 + hex2dec(buffer[1])) / 16 + 905 );
-                mc2.writeMicroseconds( 75 * (hex2dec(buffer[2]) * 16 + hex2dec(buffer[3])) / 16 + 905 );
-                mc3.writeMicroseconds( 75 * (hex2dec(buffer[4]) * 16 + hex2dec(buffer[5])) / 16 + 905 );
-                //mc4.writeMicroseconds( 75 * (hex2dec(buffer[6]) * 16 + hex2dec(buffer[7])) / 16 + 905 );
-                mc4.write(( 75 * (hex2dec(buffer[6]) * 16 + hex2dec(buffer[7])) / 16)*2);
-                sc1.writeMicroseconds( 100 * (hex2dec(buffer[8]) * 16 + hex2dec(buffer[9])) / 17 + 750 );
+                m1.writeMicroseconds( 75 * (hex2dec(buffer[0]) * 16 + hex2dec(buffer[1])) / 16 + 905 );
+                m2.writeMicroseconds( 75 * (hex2dec(buffer[2]) * 16 + hex2dec(buffer[3])) / 16 + 905 );
+                m3.writeMicroseconds( 75 * (hex2dec(buffer[4]) * 16 + hex2dec(buffer[5])) / 16 + 905 );
+                m4.writeMicroseconds( 75 * (hex2dec(buffer[6]) * 16 + hex2dec(buffer[7])) / 16 + 905 );
+                s1.writeMicroseconds( 100 * (hex2dec(buffer[8]) * 16 + hex2dec(buffer[9])) / 17 + 750 );
+                s2.writeMicroseconds( 100 * (hex2dec(buffer[10]) * 16 + hex2dec(buffer[11])) / 17 + 750 );
+                s3.writeMicroseconds( 100 * (hex2dec(buffer[12]) * 16 + hex2dec(buffer[13])) / 17 + 750 );
+                s4.writeMicroseconds( 100 * (hex2dec(buffer[14]) * 16 + hex2dec(buffer[15])) / 17 + 750 );
         }
 
   }
 } 
 
 byte hex2dec(byte c) {
-        if (c >= '0' && c <= '9') {
+        if (c >= '0' && c <= '15') {
                 return c - '0';
         }       
         else if (c >= 'A' && c <= 'F') {
-                return c - 'A' + 10;
+                return c - 'A' + 16;
         }       
         else if (c >= 'a' && c <= 'f') {
-                return c - 32 - 'A' + 10;
+                return c - 32 - 'A' + 16;
         }       
 }
