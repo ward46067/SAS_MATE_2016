@@ -1,26 +1,37 @@
 #include <Servo.h>
 
-Servo mc1;
-Servo mc2;
-Servo mc3;
-Servo mc4;
-Servo sc1;
+Servo m1;
+Servo m2;
+Servo m3;
+Servo m4;
 
-char buffer[10]; //10 Hexademcimal Inputs, 2 (a signed byte) per motor channel
+Servo s1;
+Servo s2;
+Servo s3;
+Servo s4;
+
+char buffer[16]; //10 Hexademcimal Inputs, 2 (a signed byte) per motor channel
 
 void setup() {
 
-        mc1.attach(2);
-        mc2.attach(3);
-        mc3.attach(4);
-        mc4.attach(5);
-        sc1.attach(6);
+        m1.attach(1);
+        m2.attach(2);
+        m3.attach(3);
+        m4.attach(4);
+
+        s1.attach(5);
+        s2.attach(6);
+        s3.attach(7);
+        s4.attach(8);
         
-        mc1.writeMicroseconds(1500);
-        mc2.writeMicroseconds(1500);
-        mc3.writeMicroseconds(1500);
-        mc4.writeMicroseconds(1500);
-        sc1.writeMicroseconds(1500);
+        m1.writeMicroseconds(1500);
+        m2.writeMicroseconds(1500);
+        m3.writeMicroseconds(1500);
+        m4.writeMicroseconds(1500);
+        s1.writeMicroseconds(1500);
+        s2.writeMicroseconds(1500);
+        s3.writeMicroseconds(1500);
+        s4.writeMicroseconds(1500);
         Serial.begin(9600);
 }
 
