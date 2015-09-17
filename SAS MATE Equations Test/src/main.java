@@ -102,9 +102,9 @@ public class main {
         if(y > 0) {
 
             if(motor1 > 0)
-                servo1 = ((motor1 / 2) + y) * 90; 
+                servo1 = ((motor1 / 2) + y) * 90 - 90; 
             if(motor2 > 0)
-                servo2 = ((motor2 / 2) + y) * 90;
+                servo2 = ((motor2 / 2) + y) * 90 - 90;
             if(motor3 > 0)
                 servo3 = ((motor3 / 2) + y) * 90 - 90;
             if(motor4 > 0)
@@ -120,7 +120,7 @@ public class main {
                 servo4 = ((-motor4 / 2) + y) * 90;
 
             if(motor1 == 0){
-                //servo1 = 90 - (y *90);
+                servo1 = 90 - (y *90);
                 motor1 = y;
             }
             if(motor2 == 0){
