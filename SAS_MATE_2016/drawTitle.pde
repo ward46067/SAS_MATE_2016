@@ -1,5 +1,6 @@
 void drawTitle() {
   
+  textAlign(CENTER, CENTER);
   fill(255, 214, 170);
   rect(0, 0, width, height/6);
   textFont(font, 30);
