@@ -169,5 +169,6 @@ void equations() {
        }
     }
     
-  } 
+  }
+ log(); 
 }

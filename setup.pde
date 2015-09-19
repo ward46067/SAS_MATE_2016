@@ -2,6 +2,17 @@
 void setup(){
   size(width, height); //resolution 
   
+  font = loadFont("font.vlw");
+  
+  lastSend = millis();
+  
+  //log variables
+  outputLog = createWriter("log/outputLog.txt");
+  motor1Log = createWriter("log/motor1Log.txt");
+  motor2Log = createWriter("log/motor2Log.txt");
+  motor3Log = createWriter("log/motor3Log.txt");
+  motor4Log = createWriter("log/motor4Log.txt");
+  
   //check for arduinos
   controll = ControllIO.getInstance(this);
   if (Serial.list().length < 1) { //none
@@ -33,12 +44,6 @@ void setup(){
   }
   
 
-  
-  font = loadFont("font.vlw");
-  
- 
-  
-  lastSend = millis();
   
   
 }

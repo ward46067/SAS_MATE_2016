@@ -12,11 +12,16 @@ ControllIO controll;
 ControllDevice device;
 Serial port;
 
-
+//joystick variables
 ControllSlider sliderX;
 ControllSlider sliderZ;
 
-
+//printer varibles
+PrintWriter outputLog;
+PrintWriter motor1Log;
+PrintWriter motor2Log;
+PrintWriter motor3Log;
+PrintWriter motor4Log;
 
 
 double motor1 = 0;
@@ -52,6 +57,15 @@ int height = 600;
 
 boolean jsError = true;
 boolean commsError = true;
+
+//detch date and time values
+int month = month();
+int day = day();
+int year = year();
+int hour = hour();
+int minute = minute();
+int second = second();
+int millis = millis();
 
 
 
