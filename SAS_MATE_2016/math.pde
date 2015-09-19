@@ -33,7 +33,7 @@ void math() {
   //send motor output
   if ( millis() - lastSend > 100) { //minimum time between msg = 100ms
     lastSend = millis();
-    printToArduino(m1, m1, m3, m4, s1, s2, s3, s4); 
+    printToArduino(); 
     
     if (commsError) { //if not connected, attempt reconnect
        if (Serial.list().length == 1) {

@@ -8,6 +8,7 @@ void draw(){
   
   drawTitle();
   drawDebug();
+  drawXYGraph();
   drawSensitivity();
   drawMotor1();
   drawMotor2();
