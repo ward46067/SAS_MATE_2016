@@ -1,12 +1,3 @@
-/*
-  !!!!MUST USE PROCESSING 32-BIT!!!!
-*/
-//import
-import procontroll.*; //documentation in library //in documents/processing/libraries
-import processing.serial.*;
-import java.io.*;
-import java.util.Scanner;
-
 //procontroll variables
 ControllIO controll;
 ControllDevice device;
@@ -66,8 +57,3 @@ int hour = hour();
 int minute = minute();
 int second = second();
 int millis = millis();
-
-
-
-
-

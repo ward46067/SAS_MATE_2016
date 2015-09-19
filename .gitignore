@@ -58,11 +58,11 @@ $RECYCLE.BIN/
 /SAS Mate Equations Test/build/
 /SAS MATE Equations Test/build/
 
-/log/outputLog.txt
-/log/motor1Log.txt
-/log/motor2Log.txt
-/log/motor3Log.txt
-/log/motor4Log.txt
+/SAS_MATE_2016/log/outputLog.txt
+/SAS_MATE_2016/log/motor1Log.txt
+/SAS_MATE_2016/log/motor2Log.txt
+/SAS_MATE_2016/log/motor3Log.txt
+/SAS_MATE_2016/log/motor4Log.txt
 
-/application.windows32
-/application.windows64
+/SAS_MATE_2016/application.windows32
+/SAS_MATE_2016/application.windows64
