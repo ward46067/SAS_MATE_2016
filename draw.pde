@@ -6,7 +6,7 @@ void draw(){
   
   equations();
 
-  textAlign(CENTER, BOTTOM);
+  textAlign(CENTER, BOTTOM); //text origin will be at the center and bottom of the string 
   
   // title
   fill(255, 214, 170);
@@ -32,13 +32,25 @@ void draw(){
   
   //xy graph
   fill(212, 208, 106);
-  rect(50, 150, 200, 200);
+  rect(50, 150, 250, 250);
   //display joystick x y
-  line(150, 250, 150 + x * 50, 250 + y * 150);
+  line(175, 275, 175 + x * 125, 275 + -z * 125);
   fill(82, 43, 114);
-  ellipse(150 + x * 50, 250 + y * 150, 5, 5); //dot
+  ellipse(175 + x * 125, 275 + -z * 125, 5, 5); //dot
+  
+  //sensitivity bar
+  //background bar
+  fill(212, 208, 106);
+  rect(50, 450, 250, 40);
+  //sensitivity bar
+  fill(82, 43, 114);
+  rect(50, 450, 250 * sensitivity, 40);
+  
   
   //text
   textFont(font, 18);
   fill(39,88,107);
+  text("Joystick Map", 175, 175);
+  text("Sensitivity", 175, 450);
+  
 }
