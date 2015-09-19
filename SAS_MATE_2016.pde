@@ -41,7 +41,7 @@ double servo4 = 0;
 
 int m1, m2, m3, m4, s1, s2, s3, s4;
 
-double x, y, z, rot, sens, elv;
+float x, y, z;
 
 long lastSend;
 
