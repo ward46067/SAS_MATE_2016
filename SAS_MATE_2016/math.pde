@@ -30,9 +30,12 @@ void math() {
   s3 = (int)(servo3);
   s4 = (int)(servo4);
   
+ 
+  
   //send motor output
   if ( millis() - lastSend > 100) { //minimum time between msg = 100ms
     lastSend = millis();
+    log();
     printToArduino(); 
     
     if (commsError) { //if not connected, attempt reconnect
@@ -43,5 +46,5 @@ void math() {
     }
     
   }
- log();
+ 
 }
