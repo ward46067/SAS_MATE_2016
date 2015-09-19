@@ -171,7 +171,8 @@ void equations() {
   s2 = (int)(servo2);
   s3 = (int)(servo3);
   s4 = (int)(servo4);
-   //send motor output
+  
+  //send motor output
   if ( millis() - lastSend > 100) { //minimum time between msg = 100ms
     lastSend = millis();
     printToArduino(m1, m1, m3, m4, s1, s2, s3, s4); 
