@@ -1,14 +1,20 @@
 void draw(){
   
     //backdrop colors
-  fill(191, 144, 46);
-  rect(0, 0, width, height/2);
-  fill(46, 144, 191);
-  rect(0, height/2, width, height/2);
+  fill(170, 116, 57);
+  rect(0, 0, width, height);
+  
+  fill(255, 214, 170);
+  rect(0, 0, width, height/6);
   
   textAlign(CENTER, BOTTOM);
+  //show title
+  textFont(font, 30);
+  fill(39,88,107);
+  text("MATE Control 2016", 600, 50);
+  
    //show text
-  textFont(bigfont, 18);
+  textFont(font, 18);
   
   equations();
   
@@ -18,9 +24,10 @@ void draw(){
   String textZ = Double.toString(z);
   
   //text
-  fill(0,255,0);
+  fill(39,88,107);
   text("X: " + textX, 227, 100);
   text("Z: " + textZ, 425, 100);
+  
   
   
 }

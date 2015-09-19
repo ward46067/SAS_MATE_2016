@@ -42,57 +42,17 @@ double servo4 = 0;
 int m1, m2, m3, m4, s1, s2, s3, s4;
 
 double x, y, z, rot, sens, elv;
-long lastSend;
-PFont bigfont;
 
+long lastSend;
+
+PFont font;
+
+int screenx = 1200;
+int screeny = 600;
 
 boolean jsError = true;
 boolean commsError = true;
 
-//start
-void setup(){
-  size(1000, 500); //resolution 
-  
-  //check for arduinos
-  controll = ControllIO.getInstance(this);
-  if (Serial.list().length < 1) { //none
-     println("No Arduinos detected!");
-  }
-  else if (Serial.list().length > 1) {// mutiple
-     println("Multiple serial interfaces detected!"); 
-  }
-  else {//one
-    port = new Serial(this, Serial.list()[0], 9600);
-    commsError = false;
-  }
-  
-  //check for devices
-  for (int i = 0; i < controll.getNumberOfDevices(); i++) {//loop until it gets preffered device
-     if (controll.getDevice(i).getName().equals("Saitek X52 Flight Control System")) { //find actual controller with matching name
-        device = controll.getDevice(i);
-        jsError = false;
-     }
-  }
-  try {
-    //set proper names to device buttones
-    device.setTolerance(0.15f); //deadzone
-    sliderX = device.getSlider(0);
-    sliderZ = device.getSlider(1);
-    
-  } catch (Exception e) {
-    println("Error while aquiring joystick!"); 
-  }
-  
-
-  
-  bigfont = loadFont("font.vlw");
-  
- 
-  
-  lastSend = millis();
-  
-  
-}
 
 
 
