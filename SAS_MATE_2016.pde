@@ -47,8 +47,8 @@ long lastSend;
 
 PFont font;
 
-int screenx = 1200;
-int screeny = 600;
+int width = 1200;
+int height = 600;
 
 boolean jsError = true;
 boolean commsError = true;

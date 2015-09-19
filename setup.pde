@@ -1,6 +1,6 @@
 //start
 void setup(){
-  size(screenx, screeny); //resolution 
+  size(width, height); //resolution 
   
   //check for arduinos
   controll = ControllIO.getInstance(this);
