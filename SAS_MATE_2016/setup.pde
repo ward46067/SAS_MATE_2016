@@ -35,7 +35,7 @@ void setup(){
   } catch (Exception e) {
     println("Error while aquiring joystick!"); 
   }
-  /*
+  
   //delete previous log files
   String outputLogFileName = dataPath("log/outputLog.txt");
   String motor1LogFileName = dataPath("log/motor1Log.txt");
@@ -64,7 +64,7 @@ void setup(){
   if(motor4LogFile.exists()) {
     motor4LogFile.delete();
   }
-  */
+  
   //log variables
   outputLog = createWriter("log/outputLog.txt");
   motor1Log = createWriter("log/motor1Log.txt");

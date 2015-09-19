@@ -49,11 +49,4 @@ int height = 600;
 boolean jsError = true;
 boolean commsError = true;
 
-//detch date and time values
-int month = month();
-int day = day();
-int year = year();
-int hour = hour();
-int minute = minute();
-int second = second();
-int millis = millis();
+
