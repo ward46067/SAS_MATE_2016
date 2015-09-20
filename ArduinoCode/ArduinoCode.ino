@@ -60,15 +60,15 @@ void loop() {
 
   }
 } 
-
+ //when called above, it will convert the character read from processing to a number 
 byte hex2dec(byte c) {
-        if (c >= '0' && c <= '15') {
+        if (c >= '0' && c <= '9') {
                 return c - '0';
         }       
         else if (c >= 'A' && c <= 'F') {
-                return c - 'A' + 16;
+                return c - 'A' + 10;
         }       
         else if (c >= 'a' && c <= 'f') {
-                return c - 32 - 'A' + 16;
+                return c - 32 - 'A' + 10;
         }       
 }
