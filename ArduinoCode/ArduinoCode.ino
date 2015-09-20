@@ -23,6 +23,19 @@ void setup() {
         s2.attach(6);
         s3.attach(7);
         s4.attach(8);
+
+        //reset motors and servos at start
+        m1.write(127);
+        m2.write(127);
+        m3.write(127);
+        m4.write(127);
+
+        s1.write(90);
+        s2.write(90);
+        s3.write(90);
+        s4.write(90);
+
+        Serial.begin(10000); //rate that arduino communicates with processing
         
         
 }

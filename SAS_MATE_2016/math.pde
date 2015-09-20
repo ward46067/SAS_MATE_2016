@@ -34,15 +34,15 @@ void math() {
   
   
   //send motor output
-  if ( millis() - lastSend > 100) { //minimum time between msg = 100ms
+  if ( millis() - lastSend > 100) { //send 10 times per seconed
     lastSend = millis();
     log();
     printToArduino(); 
     
-    if (commsError) { //if not connected, attempt reconnect
+    if (!connectedArduino) { //if not connected, attempt reconnect
        if (Serial.list().length == 1) {
         port = new Serial(this, Serial.list()[0], 9600);
-        commsError = false;
+        connectedArduino = true;
        }
     }
     

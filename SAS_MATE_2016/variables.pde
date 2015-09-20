@@ -4,7 +4,7 @@ ControllDevice device;
 Serial port;
 
 //joystick variables
-ControllSlider sliderX;
+ControllSlider sliderX; 
 ControllSlider sliderZ;
 
 //printer varibles
@@ -46,7 +46,7 @@ PFont font;
 int width = 1200;
 int height = 600;
 
-boolean jsError = true;
-boolean commsError = true;
+boolean connectedJoystick = false;
+boolean connectedArduino = false;
 
 
