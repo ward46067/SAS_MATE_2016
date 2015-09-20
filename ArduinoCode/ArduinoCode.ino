@@ -10,7 +10,7 @@ Servo s2;
 Servo s3;
 Servo s4;
 
-char buffer[16]; //10 Hexademcimal Inputs, 2 (a signed byte) per motor channel
+char buffer[16]; //16 Hexademcimal Inputs, 2 (a signed byte) per motor channel
 
 void setup() {
 
@@ -24,15 +24,7 @@ void setup() {
         s3.attach(7);
         s4.attach(8);
         
-        m1.writeMicroseconds(1500);
-        m2.writeMicroseconds(1500);
-        m3.writeMicroseconds(1500);
-        m4.writeMicroseconds(1500);
-        s1.writeMicroseconds(1500);
-        s2.writeMicroseconds(1500);
-        s3.writeMicroseconds(1500);
-        s4.writeMicroseconds(1500);
-        Serial.begin(9600);
+        
 }
 
 void loop() {
@@ -40,28 +32,31 @@ void loop() {
      
         byte message = Serial.read();
 
-        if (message == 'T' || message == 't') { //Throttle message starts with T followed by 8 Hexadecimal inputs
+        if (message == 'T' || message == 't') { //True if connected followed by 16 Hexadecimal inputs
                 
                 for(int i=0; i < 16; i++) {
                         buffer[i] = Serial.read();
                 }       
                 Serial.write(buffer);
-                //Convert two hexes to a decimal 0~255, rescale to 905 ~ 2100
+                //Convert two hexes to a decimal 0~255
                 //center value is 127
-                m1.writeMicroseconds( 75 * (hex2dec(buffer[0]) * 16 + hex2dec(buffer[1])) / 16 + 905 );
-                m2.writeMicroseconds( 75 * (hex2dec(buffer[2]) * 16 + hex2dec(buffer[3])) / 16 + 905 );
-                m3.writeMicroseconds( 75 * (hex2dec(buffer[4]) * 16 + hex2dec(buffer[5])) / 16 + 905 );
-                m4.writeMicroseconds( 75 * (hex2dec(buffer[6]) * 16 + hex2dec(buffer[7])) / 16 + 905 );
-                s1.writeMicroseconds( 100 * (hex2dec(buffer[8]) * 16 + hex2dec(buffer[9])) / 17 + 750 );
-                s2.writeMicroseconds( 100 * (hex2dec(buffer[10]) * 16 + hex2dec(buffer[11])) / 17 + 750 );
-                s3.writeMicroseconds( 100 * (hex2dec(buffer[12]) * 16 + hex2dec(buffer[13])) / 17 + 750 );
-                s4.writeMicroseconds( 100 * (hex2dec(buffer[14]) * 16 + hex2dec(buffer[15])) / 17 + 750 );
+                
+
+                m1.write((hex2dec(buffer[0]) * 16 + hex2dec(buffer[1])));
+                m2.write((hex2dec(buffer[2]) * 16 + hex2dec(buffer[3])));
+                m3.write((hex2dec(buffer[4]) * 16 + hex2dec(buffer[5])));
+                m4.write((hex2dec(buffer[6]) * 16 + hex2dec(buffer[7])));
+
+                s1.write((hex2dec(buffer[8]) * 16 + hex2dec(buffer[9])));
+                s2.write((hex2dec(buffer[10]) * 16 + hex2dec(buffer[11])));
+                s3.write((hex2dec(buffer[12]) * 16 + hex2dec(buffer[13])));
+                s4.write((hex2dec(buffer[14]) * 16 + hex2dec(buffer[15])));
         }
 
   }
 } 
  //when called above, it will convert the character read from processing to a number 
-byte hex2dec(byte c) {
+byte hex2dec(byte c) { //c is the character that was buffered
         if (c >= '0' && c <= '9') {
                 return c - '0';
         }       

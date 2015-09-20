@@ -19,10 +19,10 @@ void math() {
   mathSensitivity();
   
   //calculate motor output
-  m1 = (int)(motor1 * 127);
-  m2 = (int)(motor2 * 127);
-  m3 = (int)(motor3 * 127);
-  m4 = (int)(motor4 * 127);
+  m1 = (int)(motor1 * 127) + 127;
+  m2 = (int)(motor2 * 127) + 127;
+  m3 = (int)(motor3 * 127) + 127;
+  m4 = (int)(motor4 * 127) + 127;
   
   //calculate servo output
   s1 = (int)(servo1);
