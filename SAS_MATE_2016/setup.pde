@@ -72,7 +72,7 @@ void setup(){
     device.setTolerance(0.15f); //deadzone
     sliderX = device.getSlider(0); //joystick left and right
     sliderZ = device.getSlider(1); //joystick up and down
-    buttonBoost = device.getButton(1); //boost
+    buttonBoost = device.getButton(0); //boost
     sliderSensitivity = device.getSlider(3);
     
     //device.printSliders();
