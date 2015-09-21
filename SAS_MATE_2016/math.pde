@@ -34,7 +34,7 @@ void math() {
   
   
   //send motor output
-  if ( millis() - lastSend > 100) { //send 10 times per seconed
+  if ( millis() - lastSend > 10) { //send 100 times per seconed
     lastSend = millis();
     log();
     printToArduino(); 
