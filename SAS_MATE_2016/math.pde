@@ -1,8 +1,14 @@
 void math() {
   try { //math for motor and servo values //surrouned in a try/catch statement incase of errors
- 
+  
+  
+  
   x = sliderX.getValue();
   z = sliderZ.getValue();
+  boost = buttonBoost.getValue();
+  sensitivity = sliderSensitivity.getValue();
+  
+  
   
   }
   catch (Exception e) {
@@ -14,9 +20,12 @@ void math() {
   
   z *= -1; //negative to correct numbers
   
+  println(sensitivity);
+  
   mathSpeed();
   mathElevation();
   mathSensitivity();
+  
   
   //calculate motor output
   m1 = (int)(motor1 * 127) + 127;
