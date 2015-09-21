@@ -6,8 +6,8 @@ void math() {
   
   }
   catch (Exception e) {
-    if (!jsError) {
-      jsError = true;
+    if (connectedJoystick) {
+      connectedJoystick = false;
       println("Error while polling joystick values!");
     }
   }
@@ -19,13 +19,13 @@ void math() {
   mathSensitivity();
   
   //calculate motor output
-  m1 = (int)(motor1 * 127);
-  m2 = (int)(motor2 * 127);
-  m3 = (int)(motor3 * 127);
-  m4 = (int)(motor4 * 127);
+  m1 = (int)(motor1 * 127) + 127;
+  m2 = (int)(motor2 * 127) + 127;
+  m3 = (int)(motor3 * 127) + 127;
+  m4 = (int)(motor4 * 127) + 127;
   
   //calculate servo output
-  s1 = (int)(servo1);
+  s1 = (int)(x * 90) + 90;
   s2 = (int)(servo2);
   s3 = (int)(servo3);
   s4 = (int)(servo4);
@@ -34,15 +34,15 @@ void math() {
   
   
   //send motor output
-  if ( millis() - lastSend > 100) { //minimum time between msg = 100ms
+  if ( millis() - lastSend > 100) { //send 10 times per seconed
     lastSend = millis();
     log();
     printToArduino(); 
     
-    if (commsError) { //if not connected, attempt reconnect
+    if (!connectedArduino) { //if not connected, attempt reconnect
        if (Serial.list().length == 1) {
         port = new Serial(this, Serial.list()[0], 9600);
-        commsError = false;
+        connectedArduino = true;
        }
     }
     

@@ -5,7 +5,7 @@ void mathSensitivity() {
   }
   
   //multiply sensitivity
-  x *= sensitivity;
+  //x *= sensitivity;
   y *= sensitivity;
   z *= sensitivity;
   motor1 *= sensitivity;
