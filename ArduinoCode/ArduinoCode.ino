@@ -24,7 +24,7 @@ void setup() {
         s3.attach(7);
         s4.attach(8);
 
-        //reset motors and servos at start
+        //reset motors and servos at startN\
         m1.write(127);
         m2.write(127);
         m3.write(127);
@@ -35,13 +35,13 @@ void setup() {
         s3.write(90);
         s4.write(90);
 
-        Serial.begin(10000); //rate that arduino communicates with processing
+        Serial.begin(9600); //rate that arduino communicates with processing
         
         
 }
 
 void loop() {
-  while(Serial.available() > 16) { //gather 11 bits in hardware buffer
+  while(Serial.available() > 16) { //gather 17 bits in hardware buffer
      
         byte message = Serial.read();
 

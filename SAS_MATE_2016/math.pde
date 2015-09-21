@@ -6,8 +6,8 @@ void math() {
   
   }
   catch (Exception e) {
-    if (!jsError) {
-      jsError = true;
+    if (connectedJoystick) {
+      connectedJoystick = false;
       println("Error while polling joystick values!");
     }
   }
@@ -25,7 +25,7 @@ void math() {
   m4 = (int)(motor4 * 127) + 127;
   
   //calculate servo output
-  s1 = (int)(servo1);
+  s1 = (int)(x * 90) + 90;
   s2 = (int)(servo2);
   s3 = (int)(servo3);
   s4 = (int)(servo4);

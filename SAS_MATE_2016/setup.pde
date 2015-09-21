@@ -53,7 +53,7 @@ void setup(){
     outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> ERROR: Multiple serial interfaces detected!"); 
   }
   else {//one
-    port = new Serial(this, Serial.list()[0], 10000); //10000 is the communication rate
+    port = new Serial(this, Serial.list()[0], 9600); //9600 is the communication rate
     connectedArduino = true;
     outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Arduino connected");
     
@@ -75,10 +75,8 @@ void setup(){
     
   } catch (Exception e) {
     println("Error while aquiring joystick!"); 
-  }
+  } 
   
-  
-  
-  
+  draw(); 
 }
 
