@@ -16,17 +16,19 @@ void mathSpeed() {
   }
   
   //calculate z
-  if(z > 0){
-    if(x > 0)
-      z = 1 - x;
-    if(x < 0)
-      z = x + 1;
-  }
-  else if(z < 0){
-    if(x > 0)
-      z = -1 + x;
-    if(x < 0)
-      z = -1 + -x;
+  if(((x + z > 1)||(x + z < -1))||((x - z < -1)||(-x + z < -1))){
+    if(z > 0){
+      if(x > 0)
+        z = 1 - x;
+      if(x < 0)
+        z = x + 1;
+    }
+    else if(z < 0){
+      if(x > 0)
+        z = -1 + x;
+      if(x < 0)
+        z = -1 + -x;
+    }
   }
 
   if(x < 0) {
