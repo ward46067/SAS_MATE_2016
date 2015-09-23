@@ -1,4 +1,12 @@
 void mathElevation() {
+  
+  if(y == 0) {
+    servo1 = 90;
+    servo2 = 90;
+    servo3 = 90;
+    servo4 = 90;
+  }
+  
   if(y > 0) {
       
       if(motor1 > 0)

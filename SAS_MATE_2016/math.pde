@@ -20,7 +20,7 @@ void math() {
   
   z *= -1; //negative to correct numbers
   
-  println(sensitivity);
+  println(x + ", " + z);
   
   mathSpeed();
   mathElevation();

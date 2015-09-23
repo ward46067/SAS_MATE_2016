@@ -1,11 +1,6 @@
 void mathSpeed() {
-  if(y == 0) {
-    servo1 = 90;
-    servo2 = 90;
-    servo3 = 90;
-    servo4 = 90;
-  }
-
+  
+  //zeros
   if(x == 0) {
     motor1x = 0;
     motor2x = 0;
@@ -18,6 +13,20 @@ void mathSpeed() {
     motor2z = 0;
     motor3z = 0;
     motor4z = 0;
+  }
+  
+  //calculate z
+  if(z > 0){
+    if(x > 0)
+      z = 1 - x;
+    if(x < 0)
+      z = x + 1;
+  }
+  else if(z < 0){
+    if(x > 0)
+      z = -1 + x;
+    if(x < 0)
+      z = -1 + -x;
   }
 
   if(x < 0) {
