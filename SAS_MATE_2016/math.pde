@@ -8,6 +8,7 @@ void math() {
   boost = buttonBoost.getValue();
   sensitivity = sliderSensitivity.getValue();
   rotation = sliderRotation.getValue();
+  elevationToggle = buttonElevationToggle.getValue();
   
   
   
@@ -24,7 +25,8 @@ void math() {
   //println(x);
   
   mathSpeed();
-  mathElevation();
+  mathElevationToggle();
+  mathElevationServo();
   mathSensitivity();
   
   
@@ -35,7 +37,7 @@ void math() {
   m4 = (int)(motor4 * 127) + 127;
   
   //calculate servo output
-  s1 = (int)(x * 90) + 90;
+  s1 = (int)(servo1);
   s2 = (int)(servo2);
   s3 = (int)(servo3);
   s4 = (int)(servo4);

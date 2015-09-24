@@ -1,4 +1,15 @@
-void mathElevation() {
+void mathElevationToggle() {
+  
+  if(elevationToggle > 0) {
+    y = rotation;
+  }
+  else
+    y = y; //leave y to its past value so you don't have to hold down the button
+    
+  
+}
+
+void mathElevationServo() {
   
   if(y == 0) {
     servo1 = 90;

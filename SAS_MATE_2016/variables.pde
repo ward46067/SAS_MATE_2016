@@ -7,8 +7,10 @@ Serial port;
 ControllSlider sliderX; 
 ControllSlider sliderZ;
 ControllSlider sliderSensitivity;
-ControllButton buttonBoost;
 ControllSlider sliderRotation;
+
+ControllButton buttonBoost;
+ControllButton buttonElevationToggle;
 
 //printer varibles
 PrintWriter outputLog;
@@ -40,7 +42,7 @@ double servo4 = 0;
 
 int m1, m2, m3, m4, s1, s2, s3, s4;
 
-float x, y, z, sensitivity, boost, rotation;
+float x, y, z, sensitivity, boost, rotation, elevationToggle;
 
 long lastSend;
 

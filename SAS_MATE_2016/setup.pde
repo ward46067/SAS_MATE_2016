@@ -74,7 +74,8 @@ void setup(){
     sliderZ = device.getSlider(1); //joystick up and down
     buttonBoost = device.getButton(0); //boost trigger
     sliderSensitivity = device.getSlider(3); //sensitivity
-    sliderRotation = device.getslider(2); //joystick rotation
+    sliderRotation = device.getSlider(2); //joystick rotation
+    buttonElevationToggle = device.getButton(1); //elevation toggle
     
     //device.printSliders();
     

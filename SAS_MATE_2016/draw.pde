@@ -11,10 +11,12 @@ void draw(){
   drawXYGraph();
   drawSensitivity();
   drawRotation();
+  drawElevation();
   drawMotor1();
   drawMotor2();
   drawMotor3();
   drawMotor4();
   drawText();
+  
 
 }
