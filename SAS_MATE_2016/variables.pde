@@ -58,19 +58,13 @@ boolean connectedArduino = false;
 XML colorXML;
 
 XML[] colorset;
+XML[] colorsetChild;
 
-XML[] primaryChild;
-XML[] second1Child;
-XML[] second2Child;
-XML[] complementChild;
 
 String xmlID;
 
 //xml colors 
-int[][] primary = new int[5][3];
-int[][] second1 = new int[5][3];
-int[][] second2 = new int[5][3];
-int[][] complement = new int[5][3];
+int[][][] colorPalette = new int[4][5][3];
 
 //colors
 int[] colorText = new int[3];
