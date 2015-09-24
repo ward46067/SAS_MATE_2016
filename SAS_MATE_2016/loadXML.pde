@@ -1,7 +1,7 @@
 void loadXML() {
   
   //load xml
-  colorXML = loadXML("color.xml");
+  colorXML = loadXML("palette.xml");
   
   //load xml children
   colorset = colorXML.getChildren("colorset");
