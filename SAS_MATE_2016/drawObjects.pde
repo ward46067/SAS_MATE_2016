@@ -65,5 +65,11 @@ void drawSensitivity() {
 
 void drawElevation() {
   
+  //background
+  fill(212, 208, 106);
+  rect(350, 150, 40, 250);
   
+  //elevation bar
+  fill(82, 43, 114);
+  rect(350, 275, 40, -y * 125);
 }
