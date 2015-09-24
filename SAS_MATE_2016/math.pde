@@ -7,6 +7,7 @@ void math() {
   z = sliderZ.getValue();
   boost = buttonBoost.getValue();
   sensitivity = sliderSensitivity.getValue();
+  rotation = sliderRotation.getValue();
   
   
   
@@ -20,7 +21,7 @@ void math() {
   
   z *= -1; //negative to correct numbers
   
-  println(x);
+  //println(x);
   
   mathSpeed();
   mathElevation();

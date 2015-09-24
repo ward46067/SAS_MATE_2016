@@ -6,6 +6,7 @@ void drawText() {
   textAlign(CENTER, BOTTOM);
   text("Joystick Map", 175, 150);
   text("Sensitivity", 175, 450);
+  text("Rotation", 175, 535);
   text("Motor 1", 640, 175);
   text("Motor 2", 990, 175);
   text("Motor 3", 640, 365);

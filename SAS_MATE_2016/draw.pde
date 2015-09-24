@@ -10,6 +10,7 @@ void draw(){
   drawDebug();
   drawXYGraph();
   drawSensitivity();
+  drawRotation();
   drawMotor1();
   drawMotor2();
   drawMotor3();
