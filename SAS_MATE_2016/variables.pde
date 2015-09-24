@@ -54,4 +54,37 @@ int height = 600;
 boolean connectedJoystick = false;
 boolean connectedArduino = false;
 
+//xml
+XML colorXML;
+
+XML[] colorset;
+
+XML[] primaryChild;
+XML[] second1Child;
+XML[] second2Child;
+XML[] complementChild;
+
+String xmlID;
+
+//xml colors 
+int[][] primary = new int[5][3];
+int[][] second1 = new int[5][3];
+int[][] second2 = new int[5][3];
+int[][] complement = new int[5][3];
+
+//colors
+int[] colorText = new int[3];
+
+int[] colorBackground = new int[3];
+
+int[] colorBarInfo = new int[3];
+int[] colorBarBackground = new int[3];
+
+int[] colorTitleBackground = new int[3];
+
+int[] colorMotorBackground = new int[3];
+int[] colorMotorBackgroundSS = new int[3];
+
+int[] colorDebugBackground = new int[3];
+int[] colorDebugText = new int[3];
 

@@ -84,6 +84,9 @@ void setup(){
     println("Error while aquiring joystick!"); 
   } 
   
+  //xml
+  loadXML();
+  
   draw(); 
 }
 

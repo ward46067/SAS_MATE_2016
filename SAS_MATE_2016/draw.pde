@@ -1,7 +1,7 @@
 void draw(){
   
   //backdrop colors
-  fill(170, 116, 57);
+  fill(colorBackground[0], colorBackground[1], colorBackground[2]);
   rect(0, 0, width, height);
   
   math();

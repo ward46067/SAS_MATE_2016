@@ -1,7 +1,7 @@
 void drawText() {
   
   textFont(font, 18);
-  fill(39,88,107);
+  fill(colorText[0],colorText[1],colorText[2]);
   
   textAlign(CENTER, BOTTOM);
   text("Joystick Map", 175, 150);
@@ -26,4 +26,20 @@ void drawText() {
   //motor4
   text("Speed: " + motor2*100, 850, 390);
   text("Servo: " + servo2, 850, 455);
+  
+  //title
+  textAlign(CENTER, CENTER);
+  textFont(font, 30);
+  fill(colorText[0],colorText[1],colorText[2]);
+  text("MATE Control 2016", 600, 50);
+  
+  //debug title
+  fill(colorDebugText[0], colorDebugText[1], colorDebugText[2]);
+  textAlign(CENTER, BOTTOM);
+  textFont(font, 15);
+  text("Debug", 1200 - 175/2, 575);
+  
+  //debug text
+  textFont(font, 10);
+  text("Output: " + 'T' + hex(m1,2) + hex(m2,2) + hex(m3,2) + hex(m4,2) + hex(s1,2) + hex(s3,2) + hex(s3,2) + hex(s4,2), 1200 - 175/2, 595);
 }
