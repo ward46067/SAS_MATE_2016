@@ -44,12 +44,17 @@ void drawText() {
   text("Output: " + 'T' + hex(m1,2) + hex(m2,2) + hex(m3,2) + hex(m4,2) + hex(s1,2) + hex(s3,2) + hex(s3,2) + hex(s4,2), 1200 - 175/2, 595);
   
   //display date and time
-  textFont(font, 18);
+  textFont(font, 15);
   textAlign(LEFT, TOP);
   text(datetime(), 5, 5);
   
-  //xy8
+  //xy
   textAlign(LEFT, TOP);
   textFont(font, 10);
   text("X: " + (x  * 100) + " Z: " + (z * 100), 55, 155);
+  
+  //credits
+  textAlign(RIGHT, TOP);
+  textFont(font, 15);
+  text("Created by Dalen Ward", 1195, 5);
 }
