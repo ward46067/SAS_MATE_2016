@@ -1,7 +1,10 @@
 void drawTitle() {
   
+  //background
   fill(colorTitleBackground[0], colorTitleBackground[1], colorTitleBackground[2]);
   rect(0, 0, width, height/6);
+  
+  
 }
 
 void drawDebug() {

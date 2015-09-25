@@ -5,8 +5,8 @@ void drawText() {
   
   textAlign(CENTER, BOTTOM);
   text("Joystick Map", 175, 150);
-  text("Sensitivity", 175, 450);
-  text("Rotation", 175, 535);
+  text("Sensitivity: " + sensitivityPercent, 175, 450);
+  text("Rotation: " + rotation, 175, 535);
   text("Elevation", 370, 150);
   text("Motor 1", 640, 175);
   text("Motor 2", 990, 175);
@@ -42,4 +42,14 @@ void drawText() {
   //debug text
   textFont(font, 10);
   text("Output: " + 'T' + hex(m1,2) + hex(m2,2) + hex(m3,2) + hex(m4,2) + hex(s1,2) + hex(s3,2) + hex(s3,2) + hex(s4,2), 1200 - 175/2, 595);
+  
+  //display date and time
+  textFont(font, 18);
+  textAlign(LEFT, TOP);
+  text(datetime(), 5, 5);
+  
+  //xy8
+  textAlign(LEFT, TOP);
+  textFont(font, 10);
+  text("X: " + (x  * 100) + " Z: " + (z * 100), 55, 155);
 }

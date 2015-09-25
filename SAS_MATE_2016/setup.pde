@@ -46,16 +46,16 @@ void setup(){
   controll = ControllIO.getInstance(this);
   if (Serial.list().length < 1) { //none
      println("No Arduinos detected!");
-     outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> ERROR: No Arduinos detected!"); 
+     outputLog.println(datetime() + "--> ERROR: No Arduinos detected!"); 
   }
   else if (Serial.list().length > 1) {// mutiple
     println("Multiple serial interfaces detected!");
-    outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> ERROR: Multiple serial interfaces detected!"); 
+    outputLog.println(datetime() + "--> ERROR: Multiple serial interfaces detected!"); 
   }
   else {//one
     port = new Serial(this, Serial.list()[0], 9600); //9600 is the communication rate
     connectedArduino = true;
-    outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Arduino connected");
+    outputLog.println(datetime() + "--> Arduino connected");
     
   }
   

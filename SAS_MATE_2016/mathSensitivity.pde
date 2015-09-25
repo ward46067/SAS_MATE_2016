@@ -4,8 +4,8 @@ void mathSensitivity() {
   sensitivity += 1;
   sensitivity /= 2;
   
-  
-  
+  //sensitivity percentage
+  sensitivityPercent = sensitivity * 100 + "%";
   
   //boost
   if(boost == 8) {

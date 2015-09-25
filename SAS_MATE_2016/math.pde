@@ -22,6 +22,10 @@ void math() {
   
   z *= -1; //negative to correct numbers
   
+  //xValue = (int)(x * 100);
+  //zValue = String.parseInteger((int)(z * 100));
+  
+  
   //println(x);
   
   mathSpeed();

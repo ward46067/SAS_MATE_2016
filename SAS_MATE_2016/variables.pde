@@ -44,6 +44,8 @@ int m1, m2, m3, m4, s1, s2, s3, s4;
 
 float x, y, z, sensitivity, boost, rotation, elevationToggle;
 
+String sensitivityPercent, xValue, zValue, yValue;
+
 long lastSend;
 
 PFont font;
@@ -62,6 +64,8 @@ XML[] colorsetChild;
 
 
 String xmlID;
+String paletteURL;
+XML xmlURL;
 
 //xml colors 
 int[][][] colorPalette = new int[4][5][3];
@@ -81,4 +85,32 @@ int[] colorMotorBackgroundSS = new int[3];
 
 int[] colorDebugBackground = new int[3];
 int[] colorDebugText = new int[3];
+
+//date
+String date() {
+  String currentDate = month() + "/" + day() + "/" + year();
+  return currentDate;
+}
+
+//time
+String time() {
+  int currentHour = hour();
+  
+  if(currentHour > 12)
+    currentHour -= 12;
+    
+  String currentTime = currentHour + ":" + minute() + ":" + second();
+  return currentTime;
+}
+
+//date and time combined
+String datetime() {
+  int currentHour = hour();
+  
+  if(currentHour > 12)
+    return date() + " " + time() + " PM";
+  else
+    return date() + " " + time() + " AM";
+  
+}
 

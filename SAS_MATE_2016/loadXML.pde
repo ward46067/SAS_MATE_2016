@@ -13,6 +13,8 @@ void loadXML() {
   
   //load xml children
   colorset = colorXML.getChildren("colorset");
+  xmlURL = colorXML.getChild("url");
+  paletteURL = xmlURL.getContent();
   
   //get all xml values
   for(int i = 0; i < colorset.length; i++) {
