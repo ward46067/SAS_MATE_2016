@@ -11,7 +11,7 @@ void setup(){
   String motor1LogFileName = dataPath("log/motor1Log.txt");
   String motor2LogFileName = dataPath("log/motor2Log.txt");
   String motor3LogFileName = dataPath("log/motor3Log.txt");
-  String motor4LogFileName= dataPath("log/motor4Log.txt");
+  String motor4LogFileName = dataPath("log/motor4Log.txt");
   
   File outputLogFile = new File(outputLogFileName);
   File motor1LogFile = new File(motor1LogFileName);
