@@ -4,8 +4,8 @@ void mathSensitivity() {
   sensitivity += 1;
   sensitivity /= 2;
   
-  if(sensitivity < 0.25)
-    sensitivity = 0.25;
+  if(sensitivity < minSensitivity)
+    sensitivity = (float)minSensitivity;
   
   //boost
   if(boost == 8) {

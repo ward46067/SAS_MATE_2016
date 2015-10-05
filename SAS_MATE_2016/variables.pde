@@ -44,6 +44,8 @@ int m1, m2, m3, m4, s1, s2, s3, s4;
 
 float x, y, z, sensitivity, boost, rotation, elevationButton;
 
+double minSensitivity = 0.1;
+
 String xValue, zValue, yValue;
 
 long lastSend;
