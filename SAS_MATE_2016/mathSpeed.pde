@@ -1,3 +1,25 @@
+void mathSpeedZ() {
+ //calculate z
+  if(((x + z > 1)||(x + z < -1))||((x - z < -1)||(-x + z < -1))){
+    if(z > 0){
+      if(x > 0)
+        z = 1 - x;
+        //z *= sensitivity;
+      if(x < 0)
+        z = x + 1;
+        //z *= sensitivity;
+    }
+    else if(z < 0){
+      if(x > 0)
+        z = -1 + x;
+        //z *= sensitivity;
+      if(x < 0)
+        z = -1 + -x;
+        //z *= sensitivity;
+    }
+  } 
+}
+
 void mathSpeed() {
   
   //zeros
@@ -15,21 +37,7 @@ void mathSpeed() {
     motor4z = 0;
   }
   
-  //calculate z
-  if(((x + z > 1)||(x + z < -1))||((x - z < -1)||(-x + z < -1))){
-    if(z > 0){
-      if(x > 0)
-        z = 1 - x;
-      if(x < 0)
-        z = x + 1;
-    }
-    else if(z < 0){
-      if(x > 0)
-        z = -1 + x;
-      if(x < 0)
-        z = -1 + -x;
-    }
-  }
+  
 
   if(x < 0) {
     motor1x = x;

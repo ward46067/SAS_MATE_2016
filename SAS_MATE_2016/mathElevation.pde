@@ -1,10 +1,10 @@
 void mathElevationToggle() {
   
-  if(elevationToggle > 0) {
-    y = rotation;
+  if(elevationButton > 0) {
+    y = (rotation + 1)/2;
   }
   else
-    y = y; //leave y to its past value so you don't have to hold down the button
+    y = 0;
     
   
 }

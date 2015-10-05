@@ -8,7 +8,7 @@ void math() {
   boost = buttonBoost.getValue();
   sensitivity = sliderSensitivity.getValue();
   rotation = sliderRotation.getValue();
-  elevationToggle = buttonElevationToggle.getValue();
+  elevationButton = buttonElevation.getValue();
   
   
   
@@ -27,7 +27,7 @@ void math() {
   
   
   //println(x);
-  
+  mathSpeedZ(); 
   mathSensitivity();
   mathSpeed();
   mathElevationToggle();

@@ -4,6 +4,9 @@ void mathSensitivity() {
   sensitivity += 1;
   sensitivity /= 2;
   
+  if(sensitivity < 0.25)
+    sensitivity = 0.25;
+  
   //boost
   if(boost == 8) {
     sensitivity = 1;
