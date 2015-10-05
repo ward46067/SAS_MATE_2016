@@ -4,16 +4,10 @@ void mathSensitivity() {
   sensitivity += 1;
   sensitivity /= 2;
   
-  //sensitivity percentage
-  sensitivityPercent = sensitivity * 100 + "%";
-  
   //boost
   if(boost == 8) {
     sensitivity = 1;
   }
-  
-  
-  
   
   //multiply sensitivity
   x *= sensitivity;
@@ -23,6 +17,5 @@ void mathSensitivity() {
   motor2 *= sensitivity;
   motor3 *= sensitivity;
   motor4 *= sensitivity;
-  
-  
+  rotation *= sensitivity;
 }

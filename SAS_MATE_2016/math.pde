@@ -28,10 +28,11 @@ void math() {
   
   //println(x);
   
+  mathSensitivity();
   mathSpeed();
   mathElevationToggle();
   mathElevationServo();
-  mathSensitivity();
+  
   
   
   //calculate motor output

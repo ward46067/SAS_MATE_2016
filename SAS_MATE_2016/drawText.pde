@@ -5,8 +5,8 @@ void drawText() {
   
   textAlign(CENTER, BOTTOM);
   text("Joystick Map", 175, 150);
-  text("Sensitivity: " + sensitivityPercent, 175, 450);
-  text("Rotation: " + rotation, 175, 535);
+  text("Sensitivity: " + nf((sensitivity * 100), 2, 5) + "%", 175, 450);
+  text("Rotation: " + nf((rotation * 100), 2, 5), 175, 535);
   text("Elevation", 370, 150);
   text("Motor 1", 640, 175);
   text("Motor 2", 990, 175);
@@ -15,17 +15,17 @@ void drawText() {
   
   textAlign(LEFT, BOTTOM);
   //motor1
-  text("Speed: " + motor1*100, 500, 200);
-  text("Servo: " + servo1, 500, 265);
+  text("Speed: " + nf((float)(motor1*100), 2, 5), 500, 200);
+  text("Servo: " + nf((float)(servo1), 2, 5), 500, 265);
   //motor2
-  text("Speed: " + motor2*100, 850, 200);
-  text("Servo: " + servo2, 850, 265);
+  text("Speed: " + nf((float)(motor2*100), 2, 5), 850, 200);
+  text("Servo: " + nf((float)(servo2), 2, 5), 850, 265);
   //motor3
-  text("Speed: " + motor3*100, 500, 390);
-  text("Servo: " + servo3, 500, 455);
+  text("Speed: " + nf((float)(motor3*100), 2, 5), 500, 390);
+  text("Servo: " + nf((float)(servo3), 2, 5), 500, 455);
   //motor4
-  text("Speed: " + motor2*100, 850, 390);
-  text("Servo: " + servo2, 850, 455);
+  text("Speed: " + nf((float)(motor4*100), 2, 5), 850, 390);
+  text("Servo: " + nf((float)(servo4), 2, 5), 850, 455);
   
   //title
   textAlign(CENTER, CENTER);
@@ -48,10 +48,13 @@ void drawText() {
   textAlign(LEFT, TOP);
   text(datetime(), 5, 5);
   
-  //xy
+  //xz
   textAlign(LEFT, TOP);
   textFont(font, 10);
-  text("X: " + (x  * 100) + " Z: " + (z * 100), 55, 155);
+  text("X: " + nf((float)(x * 100), 2, 5), 55, 155);
+  
+  textAlign(RIGHT, TOP);
+  text("Z: " + nf((float)(z * 100), 2, 5), 295, 155);
   
   //credits
   textAlign(RIGHT, TOP);
