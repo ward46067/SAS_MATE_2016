@@ -12,6 +12,7 @@ ControllSlider sliderRotation;
 
 ControllButton buttonBoost;
 ControllButton buttonElevation;
+ControllButton buttonMode;
 
 //printer varibles
 PrintWriter outputLog;
@@ -43,7 +44,7 @@ double servo4 = 0;
 
 int m1, m2, m3, m4, s1, s2, s3, s4;
 
-float x, y, z, sensitivity, boost, rotation, elevationButton;
+float x, y, z, sensitivity, boost, rotation, elevationButton, mode;
 
 double minSensitivity = 0.1;
 
