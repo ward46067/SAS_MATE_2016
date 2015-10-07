@@ -64,8 +64,8 @@ void setup(){
   try {
     //set proper names to device buttons
     joystick.setTolerance(0.15f); 
-    sliderX = joystick.getSlider(0); //joystick left and right
-    sliderZ = joystick.getSlider(1); //joystick up and down
+    sliderX = joystick.getSlider(1); //joystick left and right
+    sliderZ = joystick.getSlider(0); //joystick up and down
     buttonBoost = joystick.getButton(0); //boost trigger
     sliderRotation = joystick.getSlider(2); //joystick rotation
     buttonElevation = joystick.getButton(5); //elevation toggle
