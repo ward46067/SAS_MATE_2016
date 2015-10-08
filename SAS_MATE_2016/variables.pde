@@ -14,11 +14,6 @@ ControllButton buttonBoost;
 ControllButton buttonElevation;
 ControllButton buttonMode;
 
-//window controls
-GWindow[] windowMode;
-GButton btnMode;
-
-
 //printer varibles
 PrintWriter outputLog;
 PrintWriter motor1Log;
@@ -46,6 +41,10 @@ double servo1 = 0;
 double servo2 = 0;
 double servo3 = 0;
 double servo4 = 0;
+
+int[][] modeButtonXY = new int[3][2]; //0 - x 1 - y
+int[][] modeButtonWH = new int[3][2]; //0 - width 1 - height
+boolean[] modeButtonHover = new boolean[3];
 
 int m1, m2, m3, m4, s1, s2, s3, s4;
 
@@ -96,6 +95,9 @@ int[] colorMotorBackgroundSS = new int[3];
 int[] colorDebugBackground = new int[3];
 int[] colorDebugText = new int[3];
 
+int[] colorButton = new int[3];
+int[] colorButtonHover = new int[3];
+
 //date
 String date() {
   String currentDate = month() + "/" + day() + "/" + year();
@@ -122,5 +124,13 @@ String datetime() {
   else
     return date() + " " + time() + " AM";
   
+}
+
+int mx(){
+  return mouseX;
+}
+
+int my(){
+  return mouseY;
 }
 
