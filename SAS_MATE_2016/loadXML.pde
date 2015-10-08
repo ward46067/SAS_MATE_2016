@@ -46,7 +46,8 @@ void loadXML() {
     colorDebugBackground[i] = colorPalette[0][4][i];
     colorDebugText[i] = colorPalette[3][1][i];
     
-    colorButton[i] = colorPalette[2][2][i];
-    colorButtonHover[i] = colorPalette[2][3][i];
+    colorButton[i] = colorPalette[2][1][i];
+    colorButtonHover[i] = colorPalette[2][2][i];
+    colorButtonSelected[i] = colorPalette[2][3][i];
   }
 }

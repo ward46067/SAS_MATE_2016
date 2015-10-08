@@ -44,7 +44,7 @@ void drawText() {
   
   //debug text
   textFont(font, 10);
-  text("Output: " + 'T' + hex(m1,2) + hex(m2,2) + hex(m3,2) + hex(m4,2) + hex(s1,2) + hex(s3,2) + hex(s3,2) + hex(s4,2), 1200 - 175/2, 595);
+  text("Output: " + 'T' + hexOut(), 1200 - 175/2, 595);
   
   //display date and time
   textFont(font, 15);
@@ -63,4 +63,12 @@ void drawText() {
   textAlign(RIGHT, TOP);
   textFont(font, 15);
   text("Created by Dalen Ward", 1195, 5);
+  
+  //mode button
+  textAlign(CENTER, CENTER);
+  textFont(font, 16);
+  fill(0, 0, 0);
+  text("Mode 1", modeButtonXY[0][0] + 50, modeButtonXY[0][1] + 45/2);
+  text("Mode 2", modeButtonXY[1][0] + 50, modeButtonXY[1][1] + 45/2);
+  text("Mode 3", modeButtonXY[2][0] + 50, modeButtonXY[2][1] + 45/2);
 }
