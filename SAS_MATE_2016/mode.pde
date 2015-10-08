@@ -1,8 +1,8 @@
 void getMode(){
-  mode = buttonMode.getValue();
+  //mode = buttonMode.getValue();
   
-  if(mode > 0)
-    println(mode);
+  //if(mode > 0)
+    //println(mode);
 }
 void mode1(){
   

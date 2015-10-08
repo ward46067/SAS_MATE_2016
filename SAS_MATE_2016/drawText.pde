@@ -13,6 +13,9 @@ void drawText() {
   text("Motor 3", 640, 365);
   text("Motor 4", 990, 365);
   
+  textAlign(RIGHT, TOP);
+  //text("Change Modes", 6, 26);
+  
   textAlign(LEFT, BOTTOM);
   //motor1
   text("Speed: " + nf((float)(motor1*100), 2, 5), 500, 200);
