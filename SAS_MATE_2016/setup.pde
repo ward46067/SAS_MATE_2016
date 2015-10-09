@@ -59,16 +59,9 @@ void setup(){
     
   }
   
-  //check for devices
-  for (int i = 0; i < controll.getNumberOfDevices(); i++) {//loop until it gets preffered device
-     if (controll.getDevice(i).getName().equals("Saitek X52 Flight Control System")) { //find actual controller with matching name //name is found in "Printers and Devices"
-        device = controll.getDevice(i);
-        connectedJoystick = true;
-        outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Joystick connected");
-     }
-  }
+  connectDevice();
+
   try {
-<<<<<<< HEAD
     //set proper names to device buttons
     joystick.setTolerance(0.15f); 
     sliderX = joystick.getSlider(1); //joystick left and right
@@ -80,16 +73,6 @@ void setup(){
     throttle.setTolerance(0.15f);//deadzone
     sliderSensitivity = throttle.getSlider(0); //sensitivity
     
-=======
-    //set proper names to device buttones
-    device.setTolerance(0.15f); //deadzone
-    sliderX = device.getSlider(0); //joystick left and right
-    sliderZ = device.getSlider(1); //joystick up and down
-    buttonBoost = device.getButton(0); //boost trigger
-    sliderSensitivity = device.getSlider(3); //sensitivity
-    sliderRotation = device.getSlider(2); //joystick rotation
-    buttonElevation = device.getButton(5); //elevation toggle
->>>>>>> parent of b4067e2... added the X-55 Rhino, fixed elevation code for the last time
     
     //device.printSliders();
     
@@ -102,5 +85,29 @@ void setup(){
   loadXML();
   
   draw(); 
+}
+
+void connectDevice(){
+  //check for devices
+  for (int i = 0; i < controll.getNumberOfDevices(); i++) {//loop until it gets preffered device
+     if (controll.getDevice(i).getName().equals("Saitek Pro Flight X-55 Rhino Stick")) { //find actual controller with matching name //name is found in "Printers and Devices"
+        joystick = controll.getDevice("Saitek Pro Flight X-55 Rhino Stick");
+        connectedJoystick = true;
+        println("Joystick Connected");
+        outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Joystick connected");
+     }
+     
+     if (controll.getDevice(i).getName().equals("Saitek Pro Flight X-55 Rhino Throttle")) { //find actual controller with matching name //name is found in "Printers and Devices"
+        throttle = controll.getDevice("Saitek Pro Flight X-55 Rhino Throttle");
+        connectedThrottle = true;
+        println("Throttle Connected");
+        outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Throttle connected");
+     }
+     
+  }
+  
+  if(connectedJoystick && connectedThrottle){
+    connectedDevice = true;
+  }
 }
 

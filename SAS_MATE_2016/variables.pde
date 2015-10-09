@@ -1,6 +1,7 @@
 //procontroll variables
 ControllIO controll;
-ControllDevice device;
+ControllDevice throttle;
+ControllDevice joystick;
 Serial port;
 
 //joystick variables
@@ -55,7 +56,8 @@ PFont font;
 int width = 1200;
 int height = 600;
 
-boolean connectedJoystick = false;
+boolean connectedDevice = false;
+boolean connectedJoystick = false, connectedThrottle = false;
 boolean connectedArduino = false;
 
 //xml
