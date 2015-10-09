@@ -25,27 +25,17 @@ void setup(){
     
   }
   
-  for (int i = 0; i < controll.getNumberOfDevices(); i++) {//loop until it gets preffered device
-     if (controll.getDevice(i).getName().equals("Saitek Pro Flight X-55 Rhino Stick")) { //find actual controller with matching name //name is found in "Printers and Devices"
-        joystick = controll.getDevice("Saitek Pro Flight X-55 Rhino Stick");
-        connectedJoystick = true;
-        println("Joystick Connected");
-        outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Joystick connected");
-     }
-     
-     if (controll.getDevice(i).getName().equals("Saitek Pro Flight X-55 Rhino Throttle")) { //find actual controller with matching name //name is found in "Printers and Devices"
-        throttle = controll.getDevice("Saitek Pro Flight X-55 Rhino Throttle");
-        connectedThrottle = true;
-        println("Throttle Connected");
-        outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Throttle connected");
-     }
-     
-  }
-  
-  if(connectedJoystick && connectedThrottle){
-    connectedDevice = true;
-    //mode1();
-  }
+  connectDevice();
+
+  try {
+    throttle.setTolerance(0.15f);//deadzone
+    buttonMode = throttle.getButton(5); //get the mode value
+    
+    
+   
+  } catch (Exception e) {
+    println("Error while aquiring joystick!"); 
+  } 
   
   //set button location and width and hover
   for(int i = 0; i < 3; i++){
@@ -59,26 +49,10 @@ void setup(){
     modeButtonSelected[i] = false;
   }
   
-  println("try");
-  try {
-    //set proper names to device buttons
-    joystick.setTolerance(0.15f); 
-    
-    sliderX = joystick.getSlider(1); //joystick left and right
-    sliderZ = joystick.getSlider(0); //joystick up and down
-    buttonBoost = joystick.getButton(0); //boost trigger
-    sliderRotation = joystick.getSlider(2); //joystick rotation
-    buttonElevation = joystick.getButton(5); //elevation toggle
-    
-    throttle.setTolerance(0.15f);//deadzone
-    sliderSensitivity = throttle.getSlider(0); //sensitivity
-    
-    println("Here");
-    //device.printSliders();
-  }
-  catch(Exception e) {
-    println("error");
-  }
+  //set default mode
+  modeButtonSelected[(defaultMode - 1)] = true;
+  getMode();
+  
   
   //xml
   loadXML();
@@ -107,7 +81,6 @@ void connectDevice(){
   
   if(connectedJoystick && connectedThrottle){
     connectedDevice = true;
-    //mode1();
   }
 }
 

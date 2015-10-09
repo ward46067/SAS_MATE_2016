@@ -1,11 +1,17 @@
 void math() {
   try { //math for motor and servo values //surrouned in a try/catch statement incase of errors
-    x = sliderX.getValue();
-    z = sliderZ.getValue();
-    boost = buttonBoost.getValue();
-    sensitivity = sliderSensitivity.getValue();
-    rotation = sliderRotation.getValue();
-    elevationButton = buttonElevation.getValue();
+  
+  
+  
+  x = sliderX.getValue();
+  z = sliderZ.getValue();
+  boost = buttonBoost.getValue();
+  sensitivity = sliderSensitivity.getValue();
+  rotation = sliderRotation.getValue();
+  elevationButton = buttonElevation.getValue();
+  
+  
+  
   }
   catch (Exception e) {
     if (connectedDevice) {
