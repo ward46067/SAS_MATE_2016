@@ -14,11 +14,6 @@ ControllButton buttonBoost;
 ControllButton buttonElevation;
 ControllButton buttonMode;
 
-//window controls
-GWindow[] windowMode;
-GButton btnMode;
-
-
 //printer varibles
 PrintWriter outputLog;
 PrintWriter motor1Log;
