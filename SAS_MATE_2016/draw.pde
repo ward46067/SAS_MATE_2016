@@ -20,7 +20,7 @@ void draw(){
   drawMotor3();
   drawMotor4();
   drawText();
-  drawModeButton();
+  drawModeChangeButton();
   
 
 }

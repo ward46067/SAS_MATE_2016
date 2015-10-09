@@ -67,6 +67,10 @@ void drawElevation() {
   rect(350, 275, 40, -y * 125);
 }
 
-
+void drawModeChangeButton(){
+ 
+ btnMode = new GButton(this, 5, 25, 100, 50, "Change Modes");
+ 
+}
 
 
