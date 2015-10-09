@@ -4,9 +4,6 @@ void draw(){
   fill(colorBackground[0], colorBackground[1], colorBackground[2]);
   rect(0, 0, width, height);
   
-  getMode();
-  //mode1();
-  
   math();
   
   drawTitle();

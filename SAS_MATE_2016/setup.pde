@@ -11,7 +11,7 @@ void setup(){
   String motor1LogFileName = dataPath("log/motor1Log.txt");
   String motor2LogFileName = dataPath("log/motor2Log.txt");
   String motor3LogFileName = dataPath("log/motor3Log.txt");
-  String motor4LogFileName= dataPath("log/motor4Log.txt");
+  String motor4LogFileName = dataPath("log/motor4Log.txt");
   
   File outputLogFile = new File(outputLogFileName);
   File motor1LogFile = new File(motor1LogFileName);
@@ -62,11 +62,21 @@ void setup(){
   connectDevice();
 
   try {
+    //set proper names to device buttons
+    joystick.setTolerance(0.15f); 
+    sliderX = joystick.getSlider(1); //joystick left and right
+    sliderZ = joystick.getSlider(0); //joystick up and down
+    buttonBoost = joystick.getButton(0); //boost trigger
+    sliderRotation = joystick.getSlider(2); //joystick rotation
+    buttonElevation = joystick.getButton(5); //elevation toggle
+    
     throttle.setTolerance(0.15f);//deadzone
-    buttonMode = throttle.getButton(5); //get the mode value
+    sliderSensitivity = throttle.getSlider(0); //sensitivity
     
     
-   
+    //device.printSliders();
+    
+    
   } catch (Exception e) {
     println("Error while aquiring joystick!"); 
   } 
