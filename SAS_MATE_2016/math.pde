@@ -14,8 +14,8 @@ void math() {
   
   }
   catch (Exception e) {
-    if (connectedDevice) {
-      connectedDevice = false;
+    if (connectedJoystick) {
+      connectedJoystick = false;
       println("Error while polling joystick values!");
     }
   }
