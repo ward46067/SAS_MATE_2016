@@ -1,22 +1,8 @@
 void getMode(){
+  //mode = buttonMode.getValue();
   
-  fill(colorButtonSelected[0], colorButtonSelected[1], colorButtonSelected[2]);
-      
-  if(modeButtonSelected[0]){
-    rect(modeButtonXY[0][0], modeButtonXY[0][1], modeButtonWH[0][0], modeButtonWH[0][1]);
-    outputLog.println(datetime() + " --> " + "Mode " + (0 + 1));
-    mode1();
-  }
-  if(modeButtonSelected[1]){
-    rect(modeButtonXY[1][0], modeButtonXY[1][1], modeButtonWH[1][0], modeButtonWH[1][1]);
-    outputLog.println(datetime() + " --> " + "Mode " + (1 + 1));
-    mode2();
-  }
-  if(modeButtonSelected[2]){
-    rect(modeButtonXY[2][0], modeButtonXY[2][1], modeButtonWH[2][0], modeButtonWH[2][1]);
-    outputLog.println(datetime() + " --> " + "Mode " + (2 + 1));
-    mode3();
-  }
+  //if(mode > 0)
+    //println(mode);
 }
 void mode1(){
   

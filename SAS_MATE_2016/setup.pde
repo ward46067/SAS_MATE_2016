@@ -46,12 +46,7 @@ void setup(){
     modeButtonWH[i][1] = 50; //height
     
     modeButtonHover[i] = false;
-    modeButtonSelected[i] = false;
   }
-  
-  //set default mode
-  modeButtonSelected[(defaultMode - 1)] = true;
-  getMode();
   
   
   //xml

@@ -45,10 +45,9 @@ double servo4 = 0;
 int[][] modeButtonXY = new int[3][2]; //0 - x 1 - y
 int[][] modeButtonWH = new int[3][2]; //0 - width 1 - height
 boolean[] modeButtonHover = new boolean[3];
-boolean[] modeButtonSelected = new boolean[3];
 
 int m1, m2, m3, m4, s1, s2, s3, s4;
-int defaultMode = 1;
+
 float x, y, z, sensitivity, boost, rotation, elevationButton, mode;
 
 double minSensitivity = 0.1;
@@ -98,7 +97,6 @@ int[] colorDebugText = new int[3];
 
 int[] colorButton = new int[3];
 int[] colorButtonHover = new int[3];
-int[] colorButtonSelected = new int[3];
 
 //date
 String date() {
@@ -134,9 +132,5 @@ int mx(){
 
 int my(){
   return mouseY;
-}
-
-String hexOut(){
-  return hex(m1,2) + hex(m2,2) + hex(m3,2) + hex(m4,2) + hex(s1,2) + hex(s3,2) + hex(s3,2) + hex(s4,2);
 }
 
