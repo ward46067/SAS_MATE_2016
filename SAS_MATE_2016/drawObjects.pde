@@ -66,3 +66,7 @@ void drawElevation() {
   fill(colorBarInfo[0], colorBarInfo[1], colorBarInfo[2]);
   rect(350, 275, 40, -y * 125);
 }
+
+
+
+

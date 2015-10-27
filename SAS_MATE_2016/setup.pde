@@ -6,12 +6,116 @@ void setup(){
   
   lastSend = millis();
   
+  createFiles();
+  
+  //check for arduinos
+  controll = ControllIO.getInstance(this);
+  if (Serial.list().length < 1) { //none
+     println("No Arduinos detected!");
+     outputLog.println(datetime() + "--> ERROR: No Arduinos detected!"); 
+  }
+  else if (Serial.list().length > 1) {// mutiple
+    println("Multiple serial interfaces detected!");
+    outputLog.println(datetime() + "--> ERROR: Multiple serial interfaces detected!"); 
+  }
+  else {//one
+    port = new Serial(this, Serial.list()[0], 9600); //9600 is the communication rate
+    connectedArduino = true;
+    outputLog.println(datetime() + "--> Arduino connected");
+    
+  }
+  
+  for (int i = 0; i < controll.getNumberOfDevices(); i++) {//loop until it gets preffered device
+     if (controll.getDevice(i).getName().equals("Saitek Pro Flight X-55 Rhino Stick")) { //find actual controller with matching name //name is found in "Printers and Devices"
+        joystick = controll.getDevice("Saitek Pro Flight X-55 Rhino Stick");
+        connectedJoystick = true;
+        println("Joystick Connected");
+        outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Joystick connected");
+     }
+     
+     if (controll.getDevice(i).getName().equals("Saitek Pro Flight X-55 Rhino Throttle")) { //find actual controller with matching name //name is found in "Printers and Devices"
+        throttle = controll.getDevice("Saitek Pro Flight X-55 Rhino Throttle");
+        connectedThrottle = true;
+        println("Throttle Connected");
+        outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Throttle connected");
+     }
+     
+  }
+  
+  if(connectedJoystick && connectedThrottle){
+    connectedDevice = true;
+    //mode1();
+  }
+  
+  //set button location and width and hover
+  for(int i = 0; i < 3; i++){
+    modeButtonXY[i][0] = ((i * 100) + 900); //x
+    modeButtonXY[i][1] = 45; //y
+    
+    modeButtonWH[i][0] = 90; //width
+    modeButtonWH[i][1] = 50; //height
+    
+    modeButtonHover[i] = false;
+    modeButtonSelected[i] = false;
+  }
+  
+  try {
+    //set proper names to device buttons
+    joystick.setTolerance(0.15f); 
+    
+    sliderX = joystick.getSlider(1); //joystick left and right
+    sliderZ = joystick.getSlider(0); //joystick up and down
+    buttonBoost = joystick.getButton(0); //boost trigger
+    sliderRotation = joystick.getSlider(2); //joystick rotation
+    buttonElevation = joystick.getButton(5); //elevation toggle
+    
+    throttle.setTolerance(0.15f);//deadzone
+    sliderSensitivity = throttle.getSlider(0); //sensitivity
+    //device.printSliders();
+  }
+  catch(Exception e) {
+    println("error");
+  }
+  
+  //xml
+  loadXML();
+  
+  draw(); 
+}
+
+void connectDevice(){
+  //check for devices
+  for (int i = 0; i < controll.getNumberOfDevices(); i++) {//loop until it gets preffered device
+    if (controll.getDevice(i).getName().equals("Saitek Pro Flight X-55 Rhino Stick")) { //find actual controller with matching name //name is found in "Printers and Devices"
+        println("Found Joystick");
+        joystick = controll.getDevice("Saitek Pro Flight X-55 Rhino Stick");
+        //connectedJoystick = true;
+        println("Joystick Connected");
+        //outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Joystick connected");
+        println(joystick.getName());
+     } else if (controll.getDevice(i).getName().equals("Saitek Pro Flight X-55 Rhino Throttle")) { //find actual controller with matching name //name is found in "Printers and Devices"
+        println("Found Throttle");
+        throttle = controll.getDevice("Saitek Pro Flight X-55 Rhino Throttle");
+        //connectedThrottle = true;
+        println("Throttle Connected");
+        //outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Throttle connected");
+     }
+     
+  }
+  
+  if(connectedJoystick && connectedThrottle){
+    connectedDevice = true;
+    mode1();
+  }
+}
+
+void createFiles() {
   //delete previous log files
   String outputLogFileName = dataPath("log/outputLog.txt");
   String motor1LogFileName = dataPath("log/motor1Log.txt");
   String motor2LogFileName = dataPath("log/motor2Log.txt");
   String motor3LogFileName = dataPath("log/motor3Log.txt");
-  String motor4LogFileName = dataPath("log/motor4Log.txt");
+  String motor4LogFileName= dataPath("log/motor4Log.txt");
   
   File outputLogFile = new File(outputLogFileName);
   File motor1LogFile = new File(motor1LogFileName);
@@ -41,73 +145,5 @@ void setup(){
   motor2Log = createWriter("log/motor2Log.txt");
   motor3Log = createWriter("log/motor3Log.txt");
   motor4Log = createWriter("log/motor4Log.txt");
-  
-  //check for arduinos
-  controll = ControllIO.getInstance(this);
-  if (Serial.list().length < 1) { //none
-     println("No Arduinos detected!");
-     outputLog.println(datetime() + "--> ERROR: No Arduinos detected!"); 
-  }
-  else if (Serial.list().length > 1) {// mutiple
-    println("Multiple serial interfaces detected!");
-    outputLog.println(datetime() + "--> ERROR: Multiple serial interfaces detected!"); 
-  }
-  else {//one
-    port = new Serial(this, Serial.list()[0], 9600); //9600 is the communication rate
-    connectedArduino = true;
-    outputLog.println(datetime() + "--> Arduino connected");
-    
-  }
-  
-  connectDevice();
-
-  try {
-    //set proper names to device buttons
-    joystick.setTolerance(0.15f); 
-    sliderX = joystick.getSlider(1); //joystick left and right
-    sliderZ = joystick.getSlider(0); //joystick up and down
-    buttonBoost = joystick.getButton(0); //boost trigger
-    sliderRotation = joystick.getSlider(2); //joystick rotation
-    buttonElevation = joystick.getButton(5); //elevation toggle
-    
-    throttle.setTolerance(0.15f);//deadzone
-    sliderSensitivity = throttle.getSlider(0); //sensitivity
-    
-    
-    //device.printSliders();
-    
-    
-  } catch (Exception e) {
-    println("Error while aquiring joystick!"); 
-  } 
-  
-  //xml
-  loadXML();
-  
-  draw(); 
-}
-
-void connectDevice(){
-  //check for devices
-  for (int i = 0; i < controll.getNumberOfDevices(); i++) {//loop until it gets preffered device
-     if (controll.getDevice(i).getName().equals("Saitek Pro Flight X-55 Rhino Stick")) { //find actual controller with matching name //name is found in "Printers and Devices"
-        joystick = controll.getDevice("Saitek Pro Flight X-55 Rhino Stick");
-        connectedJoystick = true;
-        println("Joystick Connected");
-        outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Joystick connected");
-     }
-     
-     if (controll.getDevice(i).getName().equals("Saitek Pro Flight X-55 Rhino Throttle")) { //find actual controller with matching name //name is found in "Printers and Devices"
-        throttle = controll.getDevice("Saitek Pro Flight X-55 Rhino Throttle");
-        connectedThrottle = true;
-        println("Throttle Connected");
-        outputLog.println(month() + "/" + day() + "/" + year() + " " + hour() + ":" + minute() + ":" + second() + "--> Throttle connected");
-     }
-     
-  }
-  
-  if(connectedJoystick && connectedThrottle){
-    connectedDevice = true;
-  }
 }
 
