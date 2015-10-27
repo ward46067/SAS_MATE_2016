@@ -67,3 +67,6 @@ $RECYCLE.BIN/
 /SAS_MATE_2016/application.windows32
 /SAS_MATE_2016/application.windows64
 /processing-2.2.1
+/Code/nbproject/private/
+/MATE Controller/nbproject/private/
+/MATE Controller/build/
