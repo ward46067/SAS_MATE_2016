@@ -63,7 +63,8 @@ int width = 1200;
 int height = 600;
 
 boolean connectedDevice = false;
-boolean connectedJoystick = false, connectedThrottle = false;
+boolean connectedJoystick = false;
+boolean connectedThrottle = false;
 boolean connectedArduino = false;
 
 //xml
