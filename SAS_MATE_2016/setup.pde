@@ -10,6 +10,7 @@ void setup(){
   
   //check for arduinos
   controll = ControllIO.getInstance(this);
+  
   if (Serial.list().length < 1) { //none
      println("No Arduinos detected!");
      outputLog.println(datetime() + "--> ERROR: No Arduinos detected!"); 
